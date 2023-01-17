@@ -3,14 +3,14 @@ const { Schema, model } = require('mongoose');
 const userSchema = new Schema({
   username: {
     type: String, 
-    unique: true,
-    required: true,
+    unique: [true,"someone is using this username already :("],
+    required: [true, "username cannot be empty"],
     trim: true
   },
   email: {
     type: String,
-    unique: true,
-    required: true,
+    unique: [true, "this email is already registered"],
+    required: [true, "email cannot be empty"],
     match: [/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, "email not valid."]
   },
   thoughts: [{
