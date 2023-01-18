@@ -62,7 +62,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Reactions
+// Add/Remove Reactions
 
 router.post('/:thoughtId/reactions', async (req, res) => {
   try {

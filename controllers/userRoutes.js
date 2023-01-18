@@ -53,7 +53,7 @@ router.delete('/:id', async (req, res) => {
     }
 
     await User.findOneAndUpdate({ friends: req.params.id }, { $pull: { friends: req.params.id }}, { new: true });
-    
+
     if (userData.thoughts.length > 0) {
       await Thought.deleteMany({username: userData.username});
     }
@@ -63,7 +63,7 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-// Friending 
+// Add/Remove Friends
 
 router.post('/:userId/friends/:friendId', async (req, res) => {
   try {
