@@ -20,7 +20,7 @@ const reactionSchema = new Schema({
     get: timestamp =>  timestamp.toLocaleString()
   }
 }, {
-  id: false,
+  _id: false,
 })
 
 module.exports = reactionSchema;
