@@ -52,6 +52,8 @@ router.delete('/:id', async (req, res) => {
       return res.status(404).json("User with given id does not exist.");
     }
 
+    await User.findOneAndUpdate({ friends: req.params.id }, { $pull: { friends: req.params.id }}, { new: true });
+    
     if (userData.thoughts.length > 0) {
       await Thought.deleteMany({username: userData.username});
     }
