@@ -19,6 +19,8 @@ const reactionSchema = new Schema({
     default: Date.now(),
     get: timestamp =>  timestamp.toLocaleString()
   }
+}, {
+  id: false,
 })
 
 module.exports = reactionSchema;
